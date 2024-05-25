@@ -15,7 +15,7 @@ const uploadTradeData = async (req: any, res: Response, next: NextFunction) => {
   fs.createReadStream(filePath)
     .pipe(csv())
     .on('data', (row) => {
-      console.log(row)
+      console.log(row, '---row')
       const [baseCoin, quoteCoin] = row.Market.split('/')
       trades.push({
         utcTime: new Date(row.UTC_Time),
